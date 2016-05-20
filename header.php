@@ -14,6 +14,7 @@
   </title>
 
   <!-- METADATA  -->
+  <meta name="description" content="<?php bloginfo('description'); ?>" />
   <meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
   <meta name="generator" content="WordPress <?php bloginfo('version'); ?>" /> <!-- Pour les stats -->
 
@@ -48,10 +49,10 @@
     <div id="wrapper">
 
         <header id="header">
-          
+
           <!-- Nom du blog -->
           <h1><a href="<?php bloginfo('url'); ?>"><?php bloginfo('name'); ?></a></h1>
-          
+
           <!-- Affiche le bouton d'admin -->
           <?php if (current_user_can("manage_options")) : ?>
                  <a href="<?php echo bloginfo("url") ?>/wp-admin/">Admin</a>
@@ -74,7 +75,7 @@
               </li>
             </ul>
           </nav>
-        
+
         </header>
 
         <!-- Menu -->
