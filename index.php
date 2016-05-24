@@ -20,7 +20,7 @@
               </div>
               <div class="meta">
                 <time class="published" datetime="2015-11-01"><?php the_time('j F Y') ?></time>
-                <a href="#" class="author"><span class="name"><?php the_author() ?></span><img src="<?php bloginfo('template_url'); ?>/images/avatar.jpg" alt="" /></a>
+                <div class="author"><span class="name"><?php the_author() ?></span><?php echo get_avatar(get_the_author_meta( 'ID' ), 96, false ); ?></div>
               </div>
             </header>
 
@@ -60,5 +60,3 @@
 
 
   <?php get_sidebar(); ?>
-
-</div> <!-- Fin wrapper -->

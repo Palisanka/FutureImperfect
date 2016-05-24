@@ -24,18 +24,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- LINK -->
-  <link rel="stylesheet" href="<?php bloginfo('url'); ?>/wp-content/themes/FutureImperfect/assets/sass/main.css" type="text/css" media="screen" />
+  <link rel="stylesheet" href="<?php echo esc_url( home_url() ) ; ?>/wp-content/themes/FutureImperfect/assets/sass/main.css" type="text/css" media="screen" />
   <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="<?php bloginfo('rss2_url'); ?>" />
   <link rel="alternate" type="text/xml" title="RSS .92" href="<?php bloginfo('rss_url'); ?>" />
 
 
 
   <!-- SCRIPTS -->
-  <script src="<?php bloginfo('template_url'); ?>/assets/js/jquery.min.js"></script>
-  <script src="<?php bloginfo('template_url'); ?>/assets/js/skel.min.js"></script>
-  <script src="<?php bloginfo('template_url'); ?>/assets/js/util.js"></script>
-  <!--[if lte IE 8]><script src="<?php bloginfo('template_url'); ?>/assets/js/ie/respond.min.js"></script><![endif]-->
-  <script src="<?php bloginfo('template_url'); ?>/assets/js/main.js"></script>
+  <script src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/js/jquery.min.js"></script>
+  <script src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/js/skel.min.js"></script>
+  <script src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/js/util.js"></script>
+  <!--[if lte IE 8]><script src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/js/ie/respond.min.js"></script><![endif]-->
+  <script src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/js/main.js"></script>
 
   <?php //wp_get_archives('type=monthly&format=link'); ?>
   <?php //comments_popup_script(); <?php wp_head(); ?>
@@ -48,15 +48,10 @@
   <!-- Wrapper -->
     <div id="wrapper">
 
-        <header id="header">
+        <header id="header" <?php if (current_user_can("manage_options")) {echo 'style="margin-top: 2em;"';} ?>>
 
           <!-- Nom du blog -->
-          <h1><a href="<?php bloginfo('url'); ?>"><?php bloginfo('name'); ?></a></h1>
-
-          <!-- Affiche le bouton d'admin -->
-          <?php if (current_user_can("manage_options")) : ?>
-                 <a href="<?php echo bloginfo("url") ?>/wp-admin/">Admin</a>
-          <?php endif; ?>
+          <h1><a href="<?php echo esc_url( home_url() ) ; ?>"><?php bloginfo('name'); ?></a></h1>
 
             <!-- Header-Menu Customizable-->
           <nav class="links">
@@ -68,7 +63,7 @@
             <ul>
               <li class="search">
                 <a class="fa-search" href="#search">Search</a>
-                  <?php include(TEMPLATEPATH . '/searchform.php'); ?>
+                  <?php  get_search_form(); ?>
               </li>
               <li class="menu">
                 <a class="fa-bars" href="#menu">Menu</a>
