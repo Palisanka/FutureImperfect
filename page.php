@@ -15,12 +15,12 @@
           <article class="post" id="post-<?php the_ID(); ?>">
             <header>
               <div class="title">
-                <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+                <h2><?php the_title(); ?></h2>
                 <!-- <p>Lorem ipsum dolor amet nullam consequat etiam feugiat</p> -->
               </div>
               <div class="meta">
                 <time class="published" datetime="2015-11-01"><?php the_time('j F Y') ?></time>
-                <a href="#" class="author"><span class="name"><?php the_author() ?></span><img src="<?php bloginfo('template_url'); ?>/images/avatar.jpg" alt="" /></a>
+                <div class="author"><span class="name"><?php the_author() ?></span><?php echo get_avatar(get_the_author_meta( 'ID' ), 96, false ); ?></div>
               </div>
             </header>
 
@@ -34,15 +34,6 @@
             <!-- Contenu -->
             <?php the_content(); ?>
 
-            <footer>
-              <!-- <ul class="actions">
-                <li><a href="#" class="button big">Continue Reading</a></li>
-              </ul> -->
-              <ul class="stats">
-                <li><a href="#"><?php the_category(', ') ?></a></li>
-                <li><a href="#" class="icon fa-comment"><?php comments_popup_link('Pas de commentaires', '1 Commentaire', '% Commentaires'); ?></a></li>
-              </ul>
-            </footer>
           </article>
 
         <?php endwhile; ?>
@@ -53,5 +44,3 @@
 
 
   <?php get_sidebar(); ?>
-
-</div> <!-- Fin wrapper -->

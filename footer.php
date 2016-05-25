@@ -9,3 +9,11 @@
     </ul> -->
     <p class="copyright">&copy; Le copyright.</p>
   </section>
+
+
+
+</section> <!-- fin id="sidebar"-->
+</div> <!-- Fin wrapper -->
+</body>
+<?php wp_footer(); ?>
+</html>
